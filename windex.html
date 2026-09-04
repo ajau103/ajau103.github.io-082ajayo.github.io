@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Northline Architecture | Residential & Commercial Design</title>
+
+<meta name="description"
+content="Architecture and design services for residential, commercial and renovation projects. Request a project consultation with Northline Architecture.">
+
+<style>
+:root{
+    --charcoal:#252525;
+    --charcoal-2:#333333;
+    --stone:#d9d1c4;
+    --stone-light:#f2eee7;
+    --copper:#b87549;
+    --copper-dark:#955b34;
+    --white:#ffffff;
+    --offwhite:#fbfaf7;
+    --text:#4a4a47;
+    --muted:#7b7974;
+    --border:#e3ded6;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#fff;
+    color:var(--text);
+    line-height:1.6;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button,
+input,
+select,
+textarea{
+    font:inherit;
+}
+
+.container{
+    width:min(1120px,calc(100% - 32px));
+    margin:auto;
+}
+
+.btn{
+    min-height:46px;
+    padding:0 22px;
+    border:0;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.4px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.btn-dark{
+    background:var(--charcoal);
+    color:#fff;
+}
+
+.btn-dark:hover{
+    background:#111;
+}
+
+.btn-copper{
+    background:var(--copper);
+    color:#fff;
+}
+
+.btn-copper:hover{
+    background:var(--copper-dark);
+}
+
+.btn-light{
+    background:#fff;
+    color:var(--charcoal);
+    border:1px solid var(--border);
+}
+
+/* TOPBAR */
+
+.topbar{
+    padding:8px 0;
+    background:#1d1d1d;
+    color:#c9c5bf;
+    font-size:11px;
+}
+
+.topbar-inner{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.topbar strong{
+    color:#fff;
+}
+
+/* HEADER */
+
+header{
+    background:#fff;
+    border-bottom:1px solid var(--border);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.navbar{
+    min-height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    color:var(--charcoal);
+    font-size:21px;
+    font-weight:800;
+    letter-spacing:.8px;
+}
+
+.logo-mark{
+    width:42px;
+    height:42px;
+    display:grid;
+    place-items:center;
+    border:2px solid var(--charcoal);
+    color:var(--copper);
+    font-size:19px;
+    font-weight:900;
+}
+
+.logo span{
+    color:var(--copper);
+}
+
+.menu{
+    list-style:none;
+    display:flex;
+    gap:24px;
+}
+
+.menu a{
+    color:#63615e;
+    font-size:12px;
+    font-weight:600;
+}
+
+.menu a:hover{
+    color:var(--copper);
+}
+
+/* HERO */
+
+.hero{
+    padding:76px 0 82px;
+    background:
+        linear-gradient(90deg,rgba(255,255,255,.95),rgba(255,255,255,.5)),
+        linear-gradient(135deg,#f1ece4,#d8cec0);
+    overflow:hidden;
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.02fr .98fr;
+    gap:58px;
+    align-items:center;
+}
+
+.eyebrow{
+    color:var(--copper-dark);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:15px;
+}
+
+.hero h1{
+    max-width:630px;
+    color:var(--charcoal);
+    font-size:56px;
+    line-height:1.04;
+    letter-spacing:-2px;
+    margin-bottom:18px;
+}
+
+.hero h1 span{
+    color:var(--copper);
+    font-weight:500;
+}
+
+.hero p{
+    max-width:590px;
+    color:var(--muted);
+    font-size:16px;
+    margin-bottom:27px;
+}
+
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.hero-points{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    margin-top:26px;
+    color:#6f6c67;
+    font-size:10px;
+}
+
+.hero-points strong{
+    color:var(--copper);
+}
+
+/* ARCHITECTURE VISUAL */
+
+.arch-visual{
+    min-height:390px;
+    position:relative;
+}
+
+.building{
+    position:absolute;
+    right:0;
+    top:20px;
+    width:360px;
+    height:330px;
+    background:#ece5db;
+    box-shadow:0 25px 55px rgba(40,35,30,.14);
+    overflow:hidden;
+}
+
+.building:before{
+    content:"";
+    position:absolute;
+    left:55px;
+    top:42px;
+    width:230px;
+    height:245px;
+    border:14px solid var(--charcoal);
+    border-bottom-width:28px;
+}
+
+.building:after{
+    content:"";
+    position:absolute;
+    left:105px;
+    top:95px;
+    width:130px;
+    height:110px;
+    background:
+        linear-gradient(90deg,transparent 47%,var(--charcoal) 48% 52%,transparent 53%),
+        linear-gradient(0deg,transparent 47%,var(--charcoal) 48% 52%,transparent 53%),
+        #aab3b6;
+    border:7px solid var(--charcoal);
+}
+
+.arch-line{
+    position:absolute;
+    right:35px;
+    bottom:24px;
+    width:145px;
+    height:6px;
+    background:var(--copper);
+}
+
+.arch-label{
+    position:absolute;
+    left:18px;
+    top:18px;
+    padding:9px 12px;
+    background:#fff;
+}
+
+.arch-label small{
+    display:block;
+    color:var(--copper);
+    font-size:8px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.arch-label strong{
+    color:var(--charcoal);
+    font-size:11px;
+}
+
+.float-card{
+    position:absolute;
+    z-index:5;
+    background:#fff;
+    border:1px solid var(--border);
+    padding:11px 14px;
+    box-shadow:0 12px 25px rgba(35,30,25,.10);
+}
+
+.float-card strong{
+    display:block;
+    color:var(--charcoal);
+    font-size:11px;
+}
+
+.float-card span{
+    color:#85817c;
+    font-size:9px;
+}
+
+.fc1{left:0;top:10px;}
+.fc2{left:10px;bottom:28px;}
+.fc3{right:0;bottom:0;}
+
+/* BENEFITS */
+
+.benefits{
+    border-bottom:1px solid var(--border);
+}
+
+.benefit-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+}
+
+.benefit{
+    padding:21px 15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    border-right:1px solid var(--border);
+}
+
+.benefit:last-child{
+    border-right:0;
+}
+
+.benefit-icon{
+    font-size:22px;
+}
+
+.benefit h3{
+    color:var(--charcoal);
+    font-size:11px;
+}
+
+.benefit p{
+    color:var(--muted);
+    font-size:9px;
+}
+
+/* COMMON */
+
+.section{
+    padding:67px 0;
+}
+
+.section-soft{
+    background:var(--offwhite);
+}
+
+.section-head{
+    max-width:640px;
+    margin:0 auto 35px;
+    text-align:center;
+}
+
+.section-head small{
+    color:var(--copper);
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.section-head h2{
+    color:var(--charcoal);
+    font-size:35px;
+    line-height:1.2;
+    margin:7px 0 9px;
+}
+
+.section-head p{
+    color:var(--muted);
+    font-size:12px;
+}
+
+/* SERVICES */
+
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.service{
+    background:#fff;
+    border:1px solid var(--border);
+    padding:23px;
+    transition:.25s;
+}
+
+.service:hover{
+    transform:translateY(-4px);
+    box-shadow:0 14px 30px rgba(40,35,30,.07);
+}
+
+.service-icon{
+    width:55px;
+    height:55px;
+    display:grid;
+    place-items:center;
+    background:var(--stone-light);
+    color:var(--copper);
+    font-size:25px;
+    margin-bottom:14px;
+}
+
+.service h3{
+    color:var(--charcoal);
+    font-size:16px;
+    margin-bottom:5px;
+}
+
+.service p{
+    color:var(--muted);
+    font-size:11px;
+}
+
+/* PROJECT TYPES */
+
+.project-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.project{
+    min-height:190px;
+    position:relative;
+    display:flex;
+    align-items:flex-end;
+    padding:22px;
+    overflow:hidden;
+}
+
+.project:nth-child(1){
+    background:linear-gradient(145deg,#ded8cf,#bbb1a4);
+}
+
+.project:nth-child(2){
+    background:linear-gradient(145deg,#d5d7d5,#a8acab);
+}
+
+.project:nth-child(3){
+    background:linear-gradient(145deg,#e4d5ca,#c1a58f);
+}
+
+.project-icon{
+    position:absolute;
+    right:18px;
+    top:16px;
+    font-size:55px;
+}
+
+.project h3{
+    color:#232323;
+    font-size:18px;
+}
+
+.project p{
+    color:#51504d;
+    font-size:10px;
+    margin-top:4px;
+}
+
+/* PROCESS */
+
+.process-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.process{
+    border:1px solid var(--border);
+    padding:22px;
+}
+
+.process-no{
+    width:39px;
+    height:39px;
+    display:grid;
+    place-items:center;
+    background:var(--charcoal);
+    color:var(--copper);
+    font-size:11px;
+    font-weight:800;
+    margin-bottom:13px;
+}
+
+.process h3{
+    color:var(--charcoal);
+    font-size:15px;
+    margin-bottom:5px;
+}
+
+.process p{
+    color:var(--muted);
+    font-size:10px;
+}
+
+/* CTA */
+
+.cta{
+    padding:0 0 67px;
+}
+
+.cta-box{
+    padding:36px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:30px;
+    color:#fff;
+    background:
+        linear-gradient(135deg,var(--charcoal),#393735);
+}
+
+.cta-box h2{
+    font-size:27px;
+    line-height:1.2;
+    margin-bottom:5px;
+}
+
+.cta-box p{
+    color:#d1cdca;
+    font-size:11px;
+}
+
+/* CONTACT */
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:35px;
+}
+
+.contact-box{
+    background:var(--charcoal);
+    color:#fff;
+    padding:30px;
+}
+
+.contact-box h2{
+    font-size:26px;
+    line-height:1.2;
+    margin-bottom:9px;
+}
+
+.contact-box > p{
+    color:#cfccca;
+    font-size:11px;
+    margin-bottom:18px;
+}
+
+.info{
+    padding:11px 0;
+    border-top:1px solid rgba(255,255,255,.13);
+}
+
+.info strong{
+    display:block;
+    color:#d89a71;
+    font-size:8px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.info span,
+.info a{
+    color:#dedbd8;
+    font-size:11px;
+}
+
+/* FORM */
+
+.form{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.form input,
+.form select,
+.form textarea{
+    width:100%;
+    padding:13px;
+    border:1px solid var(--border);
+    outline:none;
+    background:#fff;
+}
+
+.form input:focus,
+.form select:focus,
+.form textarea:focus{
+    border-color:var(--copper);
+}
+
+.form textarea{
+    min-height:95px;
+    resize:vertical;
+    grid-column:span 2;
+}
+
+.form button,
+.form-note{
+    grid-column:span 2;
+}
+
+.form-note{
+    color:#84807c;
+    font-size:9px;
+    line-height:1.5;
+}
+
+/* FOOTER */
+
+footer{
+    background:#1c1c1c;
+    color:#fff;
+    padding:35px 0 17px;
+}
+
+.footer-main{
+    display:flex;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.footer-brand{
+    max-width:410px;
+}
+
+.footer-brand h3{
+    font-size:18px;
+    margin-bottom:5px;
+}
+
+.footer-brand h3 span{
+    color:var(--copper);
+}
+
+.footer-brand p,
+.footer-links a{
+    color:#99948f;
+    font-size:10px;
+}
+
+.footer-links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:17px;
+}
+
+.footer-links a:hover{
+    color:#fff;
+}
+
+.footer-bottom{
+    border-top:1px solid #343434;
+    margin-top:23px;
+    padding-top:14px;
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    color:#7c7874;
+    font-size:9px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    .menu{
+        display:none;
+    }
+
+    .hero-grid,
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .service-grid,
+    .benefit-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .project-grid,
+    .process-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px){
+
+    .container{
+        width:min(100% - 22px,1120px);
+    }
+
+    .topbar-inner{
+        justify-content:center;
+        text-align:center;
+    }
+
+    .topbar-inner span:first-child{
+        display:none;
+    }
+
+    .logo{
+        font-size:16px;
+    }
+
+    .navbar > .btn{
+        padding:0 11px;
+        font-size:9px;
+    }
+
+    .hero{
+        padding:52px 0;
+    }
+
+    .hero h1{
+        font-size:39px;
+        letter-spacing:-1px;
+    }
+
+    .arch-visual{
+        min-height:400px;
+    }
+
+    .building{
+        width:290px;
+    }
+
+    .service-grid,
+    .benefit-grid,
+    .project-grid,
+    .process-grid{
+        grid-template-columns:1fr;
+    }
+
+    .benefit{
+        justify-content:flex-start;
+        border-right:0;
+        border-bottom:1px solid var(--border);
+    }
+
+    .section{
+        padding:52px 0;
+    }
+
+    .section-head h2{
+        font-size:29px;
+    }
+
+    .cta-box{
+        padding:25px 21px;
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .form{
+        grid-template-columns:1fr;
+    }
+
+    .form textarea,
+    .form button,
+    .form-note{
+        grid-column:auto;
+    }
+
+    .footer-main,
+    .footer-bottom{
+        flex-direction:column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+
+<div class="topbar">
+    <div class="container topbar-inner">
+
+        <span>
+            Residential · Commercial · Renovation · Planning
+        </span>
+
+        <span>
+            Project Enquiries:
+            <strong>(415) 555-0139</strong>
+        </span>
+
+    </div>
+</div>
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="container navbar">
+
+        <a href="#home" class="logo">
+
+            <div class="logo-mark">N</div>
+
+            NORTHLINE <span>ARCHITECTURE</span>
+
+        </a>
+
+        <ul class="menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Project Types</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#consultation">Consultation</a></li>
+        </ul>
+
+        <a href="#consultation" class="btn btn-dark">
+            Start a Project
+        </a>
+
+    </div>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="container hero-grid">
+
+        <div>
+
+            <div class="eyebrow">
+                Architecture & Design Studio
+            </div>
+
+            <h1>
+                Thoughtful spaces.
+                <span>Built around how you live.</span>
+            </h1>
+
+            <p>
+                Architectural design for residential, commercial and
+                renovation projects with a focus on practical planning,
+                clear communication and thoughtful use of space.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#consultation" class="btn btn-copper">
+                    Request Project Consultation
+                </a>
+
+                <a href="tel:+14155550139" class="btn btn-light">
+                    Call (415) 555-0139
+                </a>
+
+            </div>
+
+            <div class="hero-points">
+
+                <span>
+                    <strong>✓</strong> Residential Design
+                </span>
+
+                <span>
+                    <strong>✓</strong> Commercial Planning
+                </span>
+
+                <span>
+                    <strong>✓</strong> Renovation Concepts
+                </span>
+
+            </div>
+
+        </div>
+
+        <!-- CSS ARCHITECTURE VISUAL -->
+
+        <div class="arch-visual">
+
+            <div class="float-card fc1">
+                <strong>Concept Design</strong>
+                <span>From ideas to spatial direction</span>
+            </div>
+
+            <div class="building">
+
+                <div class="arch-label">
+                    <small>NORTHLINE</small>
+                    <strong>Form · Function · Detail</strong>
+                </div>
+
+                <div class="arch-line"></div>
+
+            </div>
+
+            <div class="float-card fc2">
+                <strong>Residential</strong>
+                <span>Homes & renovation projects</span>
+            </div>
+
+            <div class="float-card fc3">
+                <strong>Commercial</strong>
+                <span>Business & workplace spaces</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- BENEFITS -->
+
+<section class="benefits">
+
+    <div class="container benefit-grid">
+
+        <div class="benefit">
+            <div class="benefit-icon">⌂</div>
+            <div>
+                <h3>Residential Design</h3>
+                <p>Homes and living spaces</p>
+            </div>
+        </div>
+
+        <div class="benefit">
+            <div class="benefit-icon">▦</div>
+            <div>
+                <h3>Commercial Projects</h3>
+                <p>Business-focused planning</p>
+            </div>
+        </div>
+
+        <div class="benefit">
+            <div class="benefit-icon">✎</div>
+            <div>
+                <h3>Design Development</h3>
+                <p>Concepts and planning support</p>
+            </div>
+        </div>
+
+        <div class="benefit">
+            <div class="benefit-icon">◇</div>
+            <div>
+                <h3>Project Consultation</h3>
+                <p>Discuss your project needs</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section class="section section-soft" id="services">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <small>Architectural Services</small>
+
+            <h2>
+                Design support from concept to project planning.
+            </h2>
+
+            <p>
+                Scope varies by project, location and applicable
+                permitting or professional service requirements.
+            </p>
+
+        </div>
+
+        <div class="service-grid">
+
+            <article class="service">
+
+                <div class="service-icon">⌂</div>
+
+                <h3>Residential Architecture</h3>
+
+                <p>
+                    Planning and design support for new homes,
+                    additions and residential improvements.
+                </p>
+
+            </article>
+
+            <article class="service">
+
+                <div class="service-icon">▦</div>
+
+                <h3>Commercial Design</h3>
+
+                <p>
+                    Architectural planning for offices,
+                    retail spaces and commercial environments.
+                </p>
+
+            </article>
+
+            <article class="service">
+
+                <div class="service-icon">↻</div>
+
+                <h3>Renovation Design</h3>
+
+                <p>
+                    Rework existing spaces with practical
+                    layouts and updated design direction.
+                </p>
+
+            </article>
+
+            <article class="service">
+
+                <div class="service-icon">✎</div>
+
+                <h3>Concept Planning</h3>
+
+                <p>
+                    Early-stage design concepts to help
+                    clarify space, layout and project direction.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROJECT TYPES -->
+
+<section class="section" id="projects">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <small>Project Types</small>
+
+            <h2>
+                Architecture for different spaces and needs.
+            </h2>
+
+        </div>
+
+        <div class="project-grid">
+
+            <article class="project">
+
+                <div class="project-icon">⌂</div>
+
+                <div>
+                    <h3>Homes & Additions</h3>
+                    <p>
+                        New residential concepts, expansions
+                        and space planning.
+                    </p>
+                </div>
+
+            </article>
+
+            <article class="project">
+
+                <div class="project-icon">▦</div>
+
+                <div>
+                    <h3>Commercial Spaces</h3>
+                    <p>
+                        Offices, retail and selected
+                        commercial interior projects.
+                    </p>
+                </div>
+
+            </article>
+
+            <article class="project">
+
+                <div class="project-icon">↻</div>
+
+                <div>
+                    <h3>Renovations</h3>
+                    <p>
+                        Updated layouts and design direction
+                        for existing properties.
+                    </p>
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROCESS -->
+
+<section class="section section-soft" id="process">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <small>Our Process</small>
+
+            <h2>
+                A clear path from idea to design direction.
+            </h2>
+
+        </div>
+
+        <div class="process-grid">
+
+            <article class="process">
+
+                <div class="process-no">01</div>
+
+                <h3>Project Conversation</h3>
+
+                <p>
+                    Discuss the property, goals,
+                    budget considerations and project scope.
+                </p>
+
+            </article>
+
+            <article class="process">
+
+                <div class="process-no">02</div>
+
+                <h3>Concept & Planning</h3>
+
+                <p>
+                    Develop layout ideas and architectural
+                    direction based on project requirements.
+                </p>
+
+            </article>
+
+            <article class="process">
+
+                <div class="process-no">03</div>
+
+                <h3>Design Development</h3>
+
+                <p>
+                    Refine the selected direction according
+                    to agreed services and project scope.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="cta">
+
+    <div class="container">
+
+        <div class="cta-box">
+
+            <div>
+
+                <h2>
+                    Have a property or project in mind?
+                </h2>
+
+                <p>
+                    Share your project type, location and goals
+                    to request an initial architecture consultation.
+                </p>
+
+            </div>
+
+            <a href="#consultation" class="btn btn-copper">
+                Discuss Your Project
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONSULTATION -->
+
+<section class="section" id="consultation">
+
+    <div class="container contact-grid">
+
+        <div class="contact-box">
+
+            <h2>
+                Start with a project conversation.
+            </h2>
+
+            <p>
+                Tell us about your property and design goals.
+                Our team can follow up regarding project fit,
+                scope and consultation availability.
+            </p>
+
+            <div class="info">
+
+                <strong>Phone</strong>
+
+                <a href="tel:+14155550139">
+                    (415) 555-0139
+                </a>
+
+            </div>
+
+            <div class="info">
+
+                <strong>Email</strong>
+
+                <a href="mailto:studio@northlinearchitecture.com">
+                    studio@northlinearchitecture.com
+                </a>
+
+            </div>
+
+            <div class="info">
+
+                <strong>Studio</strong>
+
+                <span>
+                    640 Bryant Street,
+                    San Francisco, CA 94107
+                </span>
+
+            </div>
+
+            <div class="info">
+
+                <strong>Studio Hours</strong>
+
+                <span>
+                    Mon–Fri: 9:00 AM–6:00 PM
+                </span>
+
+            </div>
+
+        </div>
+
+        <form
+            class="form"
+            action="#consultation"
+            method="post">
+
+            <input
+                type="text"
+                name="name"
+                placeholder="Full Name"
+                required>
+
+            <input
+                type="tel"
+                name="phone"
+                placeholder="Phone Number"
+                required>
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                required>
+
+            <input
+                type="text"
+                name="location"
+                placeholder="Project City / ZIP"
+                required>
+
+            <select name="project_type" required>
+
+                <option value="">
+                    Project Type
+                </option>
+
+                <option value="new-home">
+                    New Home
+                </option>
+
+                <option value="addition">
+                    Home Addition
+                </option>
+
+                <option value="renovation">
+                    Renovation
+                </option>
+
+                <option value="commercial">
+                    Commercial
+                </option>
+
+                <option value="other">
+                    Other
+                </option>
+
+            </select>
+
+            <select name="stage">
+
+                <option value="">
+                    Current Project Stage
+                </option>
+
+                <option value="idea">
+                    Early Idea
+                </option>
+
+                <option value="property">
+                    Property Selected
+                </option>
+
+                <option value="planning">
+                    Planning Stage
+                </option>
+
+                <option value="existing-design">
+                    Existing Plans / Drawings
+                </option>
+
+            </select>
+
+            <select name="timeline">
+
+                <option value="">
+                    Preferred Timeline
+                </option>
+
+                <option value="soon">
+                    As Soon As Practical
+                </option>
+
+                <option value="1-3">
+                    1–3 Months
+                </option>
+
+                <option value="3-6">
+                    3–6 Months
+                </option>
+
+                <option value="planning">
+                    Still Planning
+                </option>
+
+            </select>
+
+            <select name="budget">
+
+                <option value="">
+                    Approximate Project Budget
+                </option>
+
+                <option value="under-100">
+                    Under $100,000
+                </option>
+
+                <option value="100-250">
+                    $100,000–$250,000
+                </option>
+
+                <option value="250-500">
+                    $250,000–$500,000
+                </option>
+
+                <option value="500-plus">
+                    $500,000+
+                </option>
+
+                <option value="unsure">
+                    Not Sure Yet
+                </option>
+
+            </select>
+
+            <textarea
+                name="message"
+                placeholder="Tell us about the property, size, goals, renovation needs or architectural services you are considering..."></textarea>
+
+            <div class="form-note">
+                Submitting this form is an enquiry only and does not create
+                an architect-client relationship or confirm project acceptance.
+                Service scope, professional requirements, fees, schedules,
+                permitting needs and project availability are confirmed separately.
+            </div>
+
+            <button
+                type="submit"
+                class="btn btn-dark">
+                Request Project Consultation
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-main">
+
+            <div class="footer-brand">
+
+                <h3>
+                    NORTHLINE <span>ARCHITECTURE</span>
+                </h3>
+
+                <p>
+                    Residential, commercial and renovation
+                    architectural design and project planning.
+                </p>
+
+            </div>
+
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#projects">Project Types</a>
+                <a href="#process">Process</a>
+                <a href="#consultation">Consultation</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 Northline Architecture. All rights reserved.
+            </span>
+
+            <span>
+                Project scope, availability and fees are confirmed before engagement.
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+</body>
+</html>
